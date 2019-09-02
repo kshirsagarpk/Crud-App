@@ -1,0 +1,83 @@
+<form [formGroup]="employeeForm" class="form-horizontal">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">Create Employee</div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-2" for="fullName">Full Name</label>
+                <div class="col-sm-8">
+                    <input id="fullName" formControlName="fullName" type="text" class="form-control">
+                    <div *ngIf="!employeeForm.valid && formSubmitAttempt">
+                        <div class="text-danger" class="text-danger" *ngIf="hasError('fullName', 'required')">Full name
+                            is required.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2" for="email">Email</label>
+                <div class="col-sm-8">
+                    <input id="email" type="text" formControlName="email" class="form-control">
+                    <div *ngIf="!employeeForm.valid && formSubmitAttempt">
+                        <div class="text-danger" *ngIf="hasError('email', 'required')">Email is required.</div>
+                        <div class="text-danger" *ngIf="hasError('email', 'email')">Email is not valid.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2" for="mobileNo">Mobile Number</label>
+                <div class="col-sm-8">
+                    <input id="mobileNo" type="number" formControlName="mobileNo" class="form-control">
+                    <div *ngIf="!employeeForm.valid && formSubmitAttempt">
+                        <div class="text-danger" *ngIf="hasError('mobileNo', 'required')">Mobile no is required.</div>
+                        <div class="text-danger" *ngIf="hasError('mobileNo', 'maxlength')">Mobile no is less than 10.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2">Gender</label>
+                <div class="col-sm-8">
+                    <label class="radio-inline">
+                        <input type="radio" id="gender" name="gender" formControlName="gender" value="male"> Male
+                    </label>
+                    <label class="radio-inline">
+                        <input checked type="radio" id="gender" name="gender" formControlName="gender"
+                            value="female">Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="department" class="col-sm-2">Department</label>
+                <div class="col-sm-8">
+                    <select id="department" style="width: 40%;" class="form-control" formControlName="department">
+                        <ng-container *ngFor="let dept of departments;let index">
+                            <option [value]="dept.id">
+                                {{dept.name}}
+                            </option>
+                        </ng-container>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob" class="col-sm-2">Date Of Birth</label>
+                <div class="col-sm-8">
+                    <input style="width: 40%;" type="text" bsDatepicker [bsConfig]="datePickerConfig" id="dob"
+                        formControlName="dob" class="form-control">
+                    <div *ngIf="!employeeForm.valid && formSubmitAttempt">
+                        <div class="text-danger" *ngIf="hasError('dob', 'required')">Date of Birth is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <button class="btn btn-primary" (click)="onSubmit()" type="submit">Save</button>
+        </div>
+    </div>
+</form>

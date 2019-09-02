@@ -1,0 +1,74 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Employee Details</h3>
+    </div>
+    <div class="panel-body mr-4">
+        <div class="row vertical-align">
+            <div class="col-xs-4"> <img class="imageclass" src="assets/images/images.jpg" /></div>
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-6">
+                        Full Name
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.fullName}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        Email
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.email}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        Mobile Number
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.mobileNo}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        Gender
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.gender}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        Department
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.department}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        Date Of Birth
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.dob | date }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        isActive
+                    </div>
+                    <div class="col-xs-6">
+                        :{{employee.isActive}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
