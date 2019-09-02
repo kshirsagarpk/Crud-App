@@ -14,6 +14,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 export class EmployeeCreateComponent implements OnInit {
   employee: Employee;
   employeeId: number;
+  title = 'ADD EMPLOYEE';
 
   dateOfBirth: Date = new Date(2019, 0, 30);
   datePickerConfig: Partial<BsDatepickerModule>;
@@ -43,6 +44,7 @@ export class EmployeeCreateComponent implements OnInit {
 
   ngOnInit() {
     if (this.route.snapshot.params.employeeId) {
+      this.title = 'EDIT EMPLOYEE';
       this.employeeId = parseInt(this.route.snapshot.params['employeeId']);
 
       this.employee = this.employeeService.get(this.employeeId);
